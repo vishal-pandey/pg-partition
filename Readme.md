@@ -19,7 +19,7 @@ This project demonstrates the importance of partitioning in PostgreSQL for optim
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/yourusername/itsm-incident-dashboard.git
+    git clone https://github.com/vishal-pandey/pg-partition.git
     cd itsm-incident-dashboard
     ```
 
