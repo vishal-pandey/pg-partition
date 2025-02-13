@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITSM Incident Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="fetchIncidents()">
+    <div class="container">
+        <h2>ITSM Incident Dashboard</h2>
+        <div id="responseTime"></div>
+        <div class="button-group">
+            <button onclick="fetchIncidents()">Load All Incidents (Partitioned)</button>
+            <button onclick="fetchOpenIncidents()">Load Open Incidents (Partitioned)</button>
+            <button onclick="fetchIncidentsOg()">Load All Incidents (Original)</button>
+            <button onclick="fetchOpenIncidentsOg()">Load Open Incidents (Original)</button>
+        </div>
+        <div class="table-container">
+            <table id="incidentTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Incident ID</th>
+                        <th>Status</th>
+                        <th>Severity</th>
+                        <th>Summary</th>
+                        <th>Created At</th>
+                    </tr>
+                </thead>
+                <tbody id="incidentBody"></tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            <button onclick="prevPage()">Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button onclick="nextPage()">Next</button>
+            <label for="pageInput">Go to page:</label>
+            <input type="number" id="pageInput" min="1" onchange="goToPage()" />
+        </div>
+        <div class="page-size">
+            <label for="pageSize">Page Size:</label>
+            <select id="pageSize" onchange="changePageSize()">
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="400" selected>400</option>
+            </select>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

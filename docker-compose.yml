@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres:
+    build: ./postgres
+    container_name: postgres_itsm
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: itsm_db
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: backend_itsm
+    environment:
+      PGUSER: admin
+      PGPASSWORD: admin
+      PGDATABASE: itsm_db
+      PGHOST: postgres
+      PGPORT: 5432
+    ports:
+      - "5001:5000"
+    depends_on:
+      - postgres
+
+volumes:
+  pgdata:

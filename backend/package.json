@@ -1,0 +1,14 @@
+{
+  "name": "itsm-backend",
+  "version": "1.0.0",
+  "description": "Express.js backend for ITSM Incident Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  }
+}
